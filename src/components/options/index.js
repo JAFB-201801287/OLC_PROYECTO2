@@ -4,7 +4,6 @@ import { Button, Row, Col } from 'react-bootstrap';
 
 const Options = ( props ) => {
 
-
     function createPestania(e) {
         e.preventDefault();
         props.createPestania();

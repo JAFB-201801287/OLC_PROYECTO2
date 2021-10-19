@@ -4,9 +4,14 @@ import { Row, Col, Card, Tabs, Tab, FloatingLabel, Form } from 'react-bootstrap'
 
 const CardComponents = ( props ) => {
 
+    var parser = require('../../assets/grammar').parser;
+
+    function exec(input) {
+        return parser.parse(input);
+    }
+
     function handleChange(e) {
-        console.log(this.keyInput);
-        console.log(e.target.value);
+        props.setConsole(exec(e.target.value));
     }
 
     function prueba(e) {
@@ -59,6 +64,7 @@ const CardComponents = ( props ) => {
                         <FloatingLabel controlId="txtConsole">
                                     <Form.Control
                                     as="textarea"
+                                    defaultValue={props.console}
                                     style={{ height: '550px' }}
                                     />
                         </FloatingLabel>

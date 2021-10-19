@@ -37,14 +37,18 @@ export default class HomePage extends Component {
                 }
             ],
             countTabs: 1,
-            currentTab: "tab1"
+            currentTab: "tab1",
+            console: ""
         }
 
     }
 
     setCurrentTab = (tab) => {
-        console.log(tab);
         this.setState({ currentTab: tab })
+    }
+
+    setConsole = (console) => {
+        this.setState({ console: console })
     }
 
     createPestania = () => {
@@ -87,6 +91,8 @@ export default class HomePage extends Component {
 
                 <CardComponents 
                     tabs={this.state.tabs} 
+                    console={this.state.console}
+                    setConsole={this.setConsole.bind(this)}
                     setCurrentTab={this.setCurrentTab.bind(this)}
                     currentTab={this.state.currentTab}
                 />
